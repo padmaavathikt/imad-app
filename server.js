@@ -5,19 +5,54 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article one | Padma',
-    date: 'Aug 18, 2017',
-    heading: 'Article One',
-    content:`<p>
-                    This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here.
+var articles = { 
+    'article-one': {
+        title: 'Article one | Padma',
+        date: 'Aug 18, 2017',
+        heading: 'Article One',
+        content:`
+        <p>
+                        This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here.
+                    </p>
+                    <p>
+                        This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
+                    </p>
+                    <p>
+                        Lets see how it turns out to be.
+                    </p>`
+    },
+    'article-two': {
+        title: 'Article two | Padma',
+        date: 'Aug 18, 2017',
+        heading: 'Article Two',
+        content: `
+        <p>
+                    This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here.
                 </p>
                 <p>
                     This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
                 </p>
                 <p>
                     Lets see how it turns out to be.
-                </p>`
+                </p>
+                `
+    },
+    'article-three': {
+        title:'Article three | Padma',
+        date:'Aug 18, 2017',
+        heading: 'Article Three',
+        content: `
+        <p>
+                    This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here.
+                </p>
+                <p>
+                    This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
+                </p>
+                <p>
+                    Lets see how it turns out to be.
+                </p>
+                `
+    }
 };
 
 function createTemplate (data){
@@ -56,16 +91,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req,res){
-  res.send(createTemplate(articleOne));
-});
-
-app.get('/article-two', function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));        
-});
-
-app.get('/article-three', function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));        
+app.get('/:articleName', function(req,res){
+    var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
