@@ -27,7 +27,7 @@ var name1 = nameInput.value;
 var submitBtn = document.getElementById("submitbtn");
 submitBtn.onclick = function () {
    //send request to server and name as param
-   alert("hi");
+   
    //get list from server and display it
    var names = ["name1", "name2", "name3", "name4"];
    var lis = "";
