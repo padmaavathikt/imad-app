@@ -29,8 +29,8 @@ submitBtn.onclick = function () {
    //send request to server and name as param
    
    //get list from server and display it
-   var names = ['name1', 'name2', 'name3'];
-   var lis = '';
+   var names = ["name1", "name2", "name3", "name4"];
+   var lis = "";
 
    for(var i=0; i< names.length; i++)
    {
