@@ -24,14 +24,15 @@ var nameInput = document.getElementById("name");
 var name1 = nameInput.value;
 
 //submit button event handler
-var submitBtn = document.getElementById("submit_btn");
+var submitBtn = document.getElementById("submitbtn");
 submitBtn.onclick = function () {
    //send request to server and name as param
    alert("hi");
    //get list from server and display it
    var names = ["name1", "name2", "name3", "name4"];
    var lis = "";
-
+};
+/*
    for(var i=0; i< names.length; i++)
    {
        lis += "<li>" + names[0] + "</li>";
@@ -39,4 +40,4 @@ submitBtn.onclick = function () {
 
    var ul = getElementById("nameList");
    ul.innerHTML = lis;
-};
+};*/
