@@ -22,7 +22,7 @@ button.onclick = function () {
 //submit input value
 var nameInput = document.getElementById("name");
 var name1 = nameInput.value;
-/*
+
 //submit button event handler
 var submitBtn = document.getElementById("submit_btn");
 submitBtn.onclick = function () {
@@ -31,6 +31,8 @@ submitBtn.onclick = function () {
    //get list from server and display it
    var names = ['name1', 'name2', 'name3'];
    var lis = '';
+};
+/*
    for(var i=0; i< names.length; i++)
    {
        lis += "<li>" + names[0] + "</li>"
