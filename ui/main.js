@@ -19,10 +19,6 @@ button.onclick = function () {
   request.send(null);
 };
 
-//submit input value
-var nameInput = document.getElementById("name");
-var name1 = nameInput.value;
-
 //submit button event handler
 var submitBtn = document.getElementById("submitbtn");
 submitBtn.onclick = function () {
@@ -49,6 +45,9 @@ submitBtn.onclick = function () {
        }
    }
    
+   //submit input value
+    var nameInput = document.getElementById("name");
+    var name1 = nameInput.value;
    request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/submit-name?name=' + name1, true);
    request.send(null);
 };
