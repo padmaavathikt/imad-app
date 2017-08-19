@@ -31,13 +31,13 @@ submitBtn.onclick = function () {
    //get list from server and display it
    var names = ['name1', 'name2', 'name3'];
    var lis = '';
-};
-/*
+
    for(var i=0; i< names.length; i++)
    {
-       lis += "<li>" + names[0] + "</li>"
+       lis += "<li>" + names[0] + "</li>";
    }
-   
+};
+/*
    var ul = getElementById("nameList");
    ul.innerHTML = lis;
 };*/
