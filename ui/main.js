@@ -27,16 +27,28 @@ var name1 = nameInput.value;
 var submitBtn = document.getElementById("submitbtn");
 submitBtn.onclick = function () {
    //send request to server and name as param
+   var request = new XMLHttpRequest();
    
-   //get list from server and display it
-   var names = ["name1", "name2", "name3", "name4"];
-   var lis = "";
-
-   for(var i=0; i< names.length; i++)
-   {
-       lis += "<li>" + names[i] + "</li>";
+   request.onreadystatechange = function () {
+       if(request.readyState === XMLHttpRequest.DONE) {
+           if(request.status === 200){
+                //get list from server and display it
+               var names = request.responseText;
+               names = JSON.parse(names);
+               
+               var lis = "";
+            
+               for(var i=0; i< names.length; i++)
+               {
+                   lis += "<li>" + names[i] + "</li>";
+               }
+            
+               var ul = document.getElementById("nameList");
+               ul.innerHTML = lis;
+           }
+       }
    }
-
-   var ul = document.getElementById("nameList");
-   ul.innerHTML = lis;
+   
+   request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/submit-name?name=' + name1, true);
+   request.send(null);
 };
