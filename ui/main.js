@@ -34,7 +34,7 @@ submitBtn.onclick = function () {
 
    for(var i=0; i< names.length; i++)
    {
-       lis += "<li>" + names[0] + "</li>";
+       lis += "<li>" + names[i] + "</li>";
    }
 
    var ul = document.getElementById("nameList");
