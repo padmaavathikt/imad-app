@@ -14,56 +14,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = { 
-    'article-one': {
-        title: 'Article one | Padma',
-        date: 'Aug 18, 2017',
-        heading: 'Article One',
-        content:`
-        <p>
-                        This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here. This is the content for my first article here.
-                    </p>
-                    <p>
-                        This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
-                    </p>
-                    <p>
-                        Lets see how it turns out to be.
-                    </p>`
-    },
-    'article-two': {
-        title: 'Article two | Padma',
-        date: 'Aug 18, 2017',
-        heading: 'Article Two',
-        content: `
-        <p>
-                    This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here. This is the content for my second article here.
-                </p>
-                <p>
-                    This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
-                </p>
-                <p>
-                    Lets see how it turns out to be.
-                </p>
-                `
-    },
-    'article-three': {
-        title:'Article three | Padma',
-        date:'Aug 18, 2017',
-        heading: 'Article Three',
-        content: `
-        <p>
-                    This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here. This is the content for my third article here.
-                </p>
-                <p>
-                    This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. This is also the first try as a webapp. 
-                </p>
-                <p>
-                    Lets see how it turns out to be.
-                </p>
-                `
-    }
-};
-
 function createTemplate (data){
     var title = data.title;
     var date = data.date;
