@@ -65,7 +65,7 @@ app.post('/create-user', function (req, res){
    var username = req.body.username;
    var password = req.body.password;
    
-   res.send('User successfully created ' + username);
+   console.log("post received: %s %s", username, password);
    
    /*var salt = crypto.randomBytes(512).toString('hex');
    var dbString = hash (password, salt);
