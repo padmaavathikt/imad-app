@@ -48,16 +48,6 @@ function createTemplate (data){
 }
 
 var pool = new Pool(config);
-app.get('/test-db', function (req, res) {
-    pool.query('SELECT * FROM TEST', function (err, result){
-        if (err) {
-            res.status(500).send(err.toString());
-        } else {
-            res.send(JSON.stringify(result.rows));
-        }
-    });
-    
-});
 
 function hash (input, salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'SHA512');
@@ -67,6 +57,31 @@ function hash (input, salt){
 app.get('/hash/:input', function (req, res){
     var hashedString = hash(req.params.input, 'this-is-a-random-string');
     res.send(hashedString);
+});
+
+app.get('/create-user', function (req, res){
+   
+   var salt = crypto.randomBytes(512).toString('hex');
+   var dbString = hash (password, salt);
+   
+   pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err, result){
+      if (err){
+        res.status(500).send(err.toString());
+      } else {
+          res.send('User successfully created ' + username);
+      }
+   });
+});
+
+app.get('/test-db', function (req, res) {
+    pool.query('SELECT * FROM TEST', function (err, result){
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            res.send(JSON.stringify(result.rows));
+        }
+    });
+    
 });
 
 app.get('/', function (req, res) {
