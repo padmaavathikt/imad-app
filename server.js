@@ -51,7 +51,7 @@ var pool = new Pool(config);
 
 function hash (input, salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'SHA512');
-    return hashed.toString('hex');
+    return ['pbkdf2', '10000', salt, hashed.toString('hex')].join('$');
 }
 
 app.get('/hash/:input', function (req, res){
@@ -59,7 +59,8 @@ app.get('/hash/:input', function (req, res){
     res.send(hashedString);
 });
 
-app.get('/create-user', function (req, res){
+app.post('/create-user', function (req, res){
+   
    
    var salt = crypto.randomBytes(512).toString('hex');
    var dbString = hash (password, salt);
