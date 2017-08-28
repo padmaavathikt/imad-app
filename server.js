@@ -49,8 +49,6 @@ function createTemplate (data){
     return htmlTemplate;
 }
 
-var pool = new Pool(config);
-
 function hash (input, salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'SHA512');
     return ['pbkdf2', '10000', salt, hashed.toString('hex')].join('$');
@@ -67,7 +65,7 @@ app.post('/create-user', function (req, res){
    
    console.log("post received: %s %s", username, password);
    
-   /*var salt = crypto.randomBytes(512).toString('hex');
+   var salt = crypto.randomBytes(512).toString('hex');
    var dbString = hash (password, salt);
    
    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err, result){
@@ -76,7 +74,7 @@ app.post('/create-user', function (req, res){
       } else {
           res.send('User successfully created ' + username);
       }
-   });*/
+   });
 });
 
 app.get('/test-db', function (req, res) {
