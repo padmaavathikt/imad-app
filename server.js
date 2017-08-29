@@ -101,6 +101,7 @@ app.post('/login', function (req, res){
               var hashedPwd = hash(password, salt);
               
               if(hashedPwd === dbPass){
+                  req.session.auth = {userId: result.rows[0].id};
                   res.send('User exists');
               } else {
                   res.status(403).send('username/password is invalid');
@@ -108,6 +109,14 @@ app.post('/login', function (req, res){
           }
       }
    });
+});
+
+app.get('/check-login', function(req, res){
+   if(req.session && req.session.auth && req.session.auth.userId){
+       res.send('You are logged in as : ' + req.session.auth.userId);
+   } else{
+       res.send("You are not logged in");
+   }
 });
 
 app.get('/test-db', function (req, res) {
