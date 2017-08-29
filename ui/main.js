@@ -42,7 +42,7 @@ submitBtn.onclick = function () {
    
    //submit input value
     var username = document.getElementById("username").value;
-    var password = document.getElementById("pasword");
+    var password = document.getElementById("password").value;
    console.log(username);
    console.log(password);
    request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/login', true);
