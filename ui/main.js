@@ -30,19 +30,12 @@ submitBtn.onclick = function () {
    request.onreadystatechange = function () {
        if(request.readyState === XMLHttpRequest.DONE) {
            if(request.status === 200){
-                //get list from server and display it
-               var names = request.responseText;
-               names = JSON.parse(names);
-               
-               var lis = "";
-            
-               for(var i=0; i< names.length; i++)
-               {
-                   lis += "<li>" + names[i] + "</li>";
-               }
-            
-               var ul = document.getElementById("nameList");
-               ul.innerHTML = lis;
+               console.log("User logged in");
+               alert('Logged in successfully');
+           } else (request.status === 403){
+               console.log("Username/password invalid");
+           } else (request.status === 500){
+               console.log("something went wrong on the server");
            }
        }
    }
@@ -50,7 +43,8 @@ submitBtn.onclick = function () {
    //submit input value
     var username = document.getElementById("username").value;
     var password = document.getElementById("pasword").value;
-   
+   console.log(username);
+   console.log(password);
    request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/login', true);
    request.send(JSON.stringify({username:username, password:password}));
 };
