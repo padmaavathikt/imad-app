@@ -1,3 +1,4 @@
+/*
 var button = document.getElementById("counter");
 
 
@@ -18,6 +19,7 @@ button.onclick = function () {
   request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/counter');
   request.send(null);
 };
+*/
 
 //submit button event handler
 var submitBtn = document.getElementById("submitbtn");
