@@ -48,8 +48,9 @@ submitBtn.onclick = function () {
    }
    
    //submit input value
-    var nameInput = document.getElementById("name");
-    var name1 = nameInput.value;
-   request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/submit-name?name=' + name1, true);
-   request.send(null);
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("pasword").value;
+   
+   request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/login', true);
+   request.send(JSON.stringify({username:username, password:password}));
 };
