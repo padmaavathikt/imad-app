@@ -93,13 +93,13 @@ regBtn.onclick=function () {
 
 var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
-    console.log('first');
+    
     var request = new XMLHttpRequest();
     
     request.onreadystatechanged = function () {
         
         if (request.readystate === XMLHttpRequest.DONE) {
-            alert('1');
+            console.log('second');
             if (request.status === 200) {
                 /*alert('you are logged out');
                 document.getElementById('welcome').style.visibility = "hidden";
