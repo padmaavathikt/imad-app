@@ -97,7 +97,7 @@ var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
     
     var request = new XMLHttpRequest();
-    try{
+    
     request.onreadystatechanged = function () {
         console.log('second');
         if (request.readystate === XMLHttpRequest.DONE) {
@@ -114,10 +114,7 @@ logoutBtn.onclick = function () {
             }
         }
     }
-    }
-    catch(e){
-        consol.log(e);
-    }
+    
     console.log('third');
     request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/logout', true);
     request.send(null);
