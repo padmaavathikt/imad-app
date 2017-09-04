@@ -24,7 +24,9 @@ button.onclick = function () {
 //submit button event handler
 var submitBtn = document.getElementById("submitbtn");
 submitBtn.style.visibility = "hidden";
-submitBtn.onclick = function () {
+
+var loginBtn = document.getElementById("loginbtn");
+loginBtn.onclick = function () {
    //send request to server and name as param
    var request = new XMLHttpRequest();
    
@@ -49,4 +51,21 @@ submitBtn.onclick = function () {
    request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/login', true);
    request.setRequestHeader('Content-Type', 'application/json');
    request.send(JSON.stringify({username:username, password:password}));
+};
+
+var regBtn = document.getElementById("registerbtn");
+regBtn.onclick=function () {
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(request.readystate === XMLHttpRequest.DONE){
+            if (request.status === 200) {
+                console.log("User registered");
+            }
+        }
+    }
+    
+    request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/create-user', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({username:username, password:password}));
 };
