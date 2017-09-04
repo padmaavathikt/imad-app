@@ -23,6 +23,7 @@ button.onclick = function () {
 
 //submit button event handler
 var submitBtn = document.getElementById("submitbtn");
+submitBtn.style.visibility = "hidden";
 submitBtn.onclick = function () {
    //send request to server and name as param
    var request = new XMLHttpRequest();
