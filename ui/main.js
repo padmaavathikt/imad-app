@@ -70,7 +70,7 @@ regBtn.onclick=function () {
     }
     
     var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+    var password = 'password';
     
     console.log(username);
     console.log(password);
