@@ -49,7 +49,7 @@ loginBtn.onclick = function () {
                document.getElementById('userdetails').style.visibility = "hidden";
                document.getElementById('btndetails').style.visibility = "hidden";
                document.getElementById('welcome').firstChild.nodeValue = "Welcome " + document.getElementById('username').value + "!!!";
-               console.log("Welcome " + document.getElementById('username').value + "!!!");
+               
            } else if (request.status === 403){
                console.log("Username/password invalid");
            } else if (request.status === 500){
@@ -97,7 +97,7 @@ var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
     
     var request = new XMLHttpRequest();
-    
+    try{
     request.onreadystatechanged = function () {
         console.log('second');
         if (request.readystate === XMLHttpRequest.DONE) {
@@ -113,6 +113,10 @@ logoutBtn.onclick = function () {
                 alert('something happened');
             }
         }
+    }
+    }
+    catch(e){
+        consol.log(e);
     }
     console.log('third');
     request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/logout', true);
