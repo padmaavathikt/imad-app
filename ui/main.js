@@ -103,6 +103,8 @@ logoutBtn.onclick = function () {
                document.getElementById('logout').style.visibility = "hidden";
                document.getElementById('userdetails').style.visibility = "visible";
                document.getElementById('btndetails').style.visibility = "visible";
+            } else {
+                alert('something happened');
             }
         }
     }
