@@ -28,6 +28,12 @@ submitBtn.style.visibility = "hidden";
 var pwd = document.getElementById("password");
 pwd.style.visibility = "hidden";
 
+var divWC = document.getElementById('welcome');
+divWC.style.visibility = 'hidden';
+
+var divLO = document.getElementById('logout');
+divLO.style.visibility = 'hidden';
+
 var loginBtn = document.getElementById("loginbtn");
 loginBtn.onclick = function () {
    //send request to server and name as param
@@ -38,6 +44,10 @@ loginBtn.onclick = function () {
            if(request.status === 200){
                console.log("User logged in");
                alert('Logged in successfully');
+               document.getElementById('welcome').style.visibility = "visible";
+               document.getElementById('logout').style.visibility = "visible";
+               document.getElementById('userdetails').style.visibility = "hidden";
+               document.getElementById('btndetails').style.visibility = "hidden";
            } else if (request.status === 403){
                console.log("Username/password invalid");
            } else if (request.status === 500){
@@ -89,6 +99,10 @@ logoutBtn.onclick = function () {
         if (request.readystate === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 alert('you are logged out');
+                document.getElementById('welcome').style.visibility = "hidden";
+               document.getElementById('logout').style.visibility = "hidden";
+               document.getElementById('userdetails').style.visibility = "visible";
+               document.getElementById('btndetails').style.visibility = "visible";
             }
         }
     }
