@@ -25,6 +25,10 @@ button.onclick = function () {
 var submitBtn = document.getElementById("submitbtn");
 submitBtn.style.visibility = "hidden";
 
+var pwd = document.getElementById("password");
+
+pwd.style.visibility = "hidden";
+
 var loginBtn = document.getElementById("loginbtn");
 loginBtn.onclick = function () {
    //send request to server and name as param
