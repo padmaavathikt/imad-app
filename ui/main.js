@@ -112,7 +112,7 @@ logoutBtn.onclick = function () {
             }
         }
     }
-    
+    console.log('third');
     request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/logout', true);
     request.send(null);
 };
