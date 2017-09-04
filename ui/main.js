@@ -26,7 +26,7 @@ var submitBtn = document.getElementById("submitbtn");
 submitBtn.style.visibility = "hidden";
 
 var pwd = document.getElementById("password");
-
+pwd.text = "password";
 pwd.style.visibility = "hidden";
 
 var loginBtn = document.getElementById("loginbtn");
