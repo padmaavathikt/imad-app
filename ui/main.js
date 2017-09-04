@@ -97,9 +97,9 @@ logoutBtn.onclick = function () {
     var request = new XMLHttpRequest();
     
     request.onreadystatechanged = function () {
-        
+        console.log('second');
         if (request.readystate === XMLHttpRequest.DONE) {
-            console.log('second');
+            
             if (request.status === 200) {
                 /*alert('you are logged out');
                 document.getElementById('welcome').style.visibility = "hidden";
