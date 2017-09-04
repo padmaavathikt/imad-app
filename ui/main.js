@@ -48,6 +48,7 @@ loginBtn.onclick = function () {
                document.getElementById('logout').style.visibility = "visible";
                document.getElementById('userdetails').style.visibility = "hidden";
                document.getElementById('btndetails').style.visibility = "hidden";
+               document.getElementById('welcome').value = "Welcome " + document.getElementById('username').value + "!!!";
            } else if (request.status === 403){
                console.log("Username/password invalid");
            } else if (request.status === 500){
