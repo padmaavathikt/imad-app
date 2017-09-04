@@ -98,11 +98,12 @@ logoutBtn.onclick = function () {
     request.onreadystatechanged = function () {
         if (request.readystate === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                alert('you are logged out');
+                /*alert('you are logged out');
                 document.getElementById('welcome').style.visibility = "hidden";
                document.getElementById('logout').style.visibility = "hidden";
                document.getElementById('userdetails').style.visibility = "visible";
-               document.getElementById('btndetails').style.visibility = "visible";
+               document.getElementById('btndetails').style.visibility = "visible";*/
+                alert('request.responseText');
             } else {
                 alert('something happened');
             }
