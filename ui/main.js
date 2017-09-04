@@ -80,3 +80,19 @@ regBtn.onclick=function () {
     request.setRequestHeader('Content-Type', 'application/json');
    request.send(JSON.stringify({username:username, password:password}));
 };
+
+var logoutBtn = document.getElementById("submit2");
+logoutBtn.onclick = function () {
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechanged = function () {
+        if (request.readystate === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                alert('you are logged out');
+            }
+        }
+    }
+    
+    request.open('GET', 'http://padmavathythiruvenkadam.imad.hasura-app.io/logout', true);
+    request.send(null);
+};
