@@ -93,7 +93,7 @@ regBtn.onclick=function () {
 
 var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
-    alert('1');
+    
     var request = new XMLHttpRequest();
     
     request.onreadystatechanged = function () {
