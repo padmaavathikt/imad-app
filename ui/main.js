@@ -91,7 +91,7 @@ regBtn.onclick=function () {
    request.send(JSON.stringify({username:username, password:password}));
 };
 
-var logoutBtn = document.getElementById("submit2");
+var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
     var request = new XMLHttpRequest();
     
