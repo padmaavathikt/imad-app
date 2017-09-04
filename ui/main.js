@@ -93,9 +93,11 @@ regBtn.onclick=function () {
 
 var logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.onclick = function () {
+    alert('1');
     var request = new XMLHttpRequest();
     
     request.onreadystatechanged = function () {
+        alert('2');
         if (request.readystate === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 /*alert('you are logged out');
