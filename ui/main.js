@@ -26,7 +26,6 @@ var submitBtn = document.getElementById("submitbtn");
 submitBtn.style.visibility = "hidden";
 
 var pwd = document.getElementById("password");
-pwd.text = "password";
 pwd.style.visibility = "hidden";
 
 var loginBtn = document.getElementById("loginbtn");
@@ -50,6 +49,7 @@ loginBtn.onclick = function () {
    //submit input value
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+   
    console.log(username);
    console.log(password);
    request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/login', true);
@@ -68,6 +68,12 @@ regBtn.onclick=function () {
             }
         }
     }
+    
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    
+    console.log(username);
+    console.log(password);
     
     request.open('POST', 'http://padmavathythiruvenkadam.imad.hasura-app.io/create-user', true);
     request.setRequestHeader('Content-Type', 'application/json');
