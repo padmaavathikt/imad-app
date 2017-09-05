@@ -79,7 +79,8 @@ app.post('/create-user', function (req, res){
       if (err){
         res.status(500).send(err.toString());
       } else {
-          res.send('User successfully created ' + username);
+          res.setHeader('Content-Type', 'application/json')
+          res.send(JSON.parse('{"message":"User successfully created"}'));
       }
    });
 });
@@ -102,7 +103,8 @@ app.post('/login', function (req, res){
               
               if(hashedPwd === dbPass){
                   req.session.auth = {userId: result.rows[0].id};
-                  res.send('User exists');
+                  res.setHeader('Content-Type', 'application/json');
+                  res.send(JSON.parse('{"message":"User exists"}'));
               } else {
                   res.status(403).send('username/password is invalid');
               }
@@ -121,7 +123,8 @@ app.get('/check-login', function(req, res){
 
 app.get('/logout', function(req, res){
    delete req.session.auth;
-   res.send('User logged out');
+   res.setHeader('Content-Type', 'application/json');
+   res.send(JSON.parse('{"message":"User logged out"}'));
 });
 
 app.get('/test-db', function (req, res) {
