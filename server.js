@@ -113,9 +113,19 @@ app.post('/login', function (req, res){
    });
 });
 
-//app.get('get-articles', function (req, res) {
-//    
-//});
+app.get('/get-articles', function (req, res) {
+    pool.query('SELECT * FROM ARTICLE', function (err, result){
+        if(err)
+            res.status(500).send(err.toString());
+        else {
+            if (result.rows.length === 0) 
+                res.status(404).send('No articles');
+            else{
+                   res.send(JSON.parse(result.rows)) 
+                }
+            }
+    });
+});
 
 app.get('/check-login', function(req, res){
    if(req.session && req.session.auth && req.session.auth.userId){
