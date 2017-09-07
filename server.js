@@ -121,7 +121,7 @@ app.get('/get-articles', function (req, res) {
             if (result.rows.length === 0) 
                 res.status(404).send('No articles');
             else{
-                   res.send(JSON.parse(result.rows)) 
+                   res.send(JSON.stringify(result.rows)) 
                 }
             }
     });
